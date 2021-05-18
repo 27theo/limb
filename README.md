@@ -1,5 +1,5 @@
 # limb
-Limb counter for Achaea, on Mudlet. Please see the releases page for the download.
+Limb counter for Achaea, on Mudlet. Please see [the releases page](https://github.com/27theo/limb/releases) for the download.
 
 ## Setup
 
