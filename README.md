@@ -1,2 +1,36 @@
 # limb
-Limb counter for Achaea, on Mudlet
+Limb counter for Achaea, on Mudlet. Please see the releases page for the download.
+
+## Setup
+
+ 1) Install the latest release from the releases section (see right on desktop website).
+ 2) Ensure that your target alias meets the following requirements:
+     - Sends "settarget \<target\>" to the game.
+     - Sets the `target` variable to the target's name, capitalised appropriately. (E.g. "Romaen" as opposed to "romaen".)
+
+Note: Without editing, limb damage will only register when the limb attack is queued and runs. This ensures that nobody can illusion the "your blow lands with a crunch" line without also illusioning a system queue message, which is an illegal illusion. You can tweak the trigger however you'd like, but the existing method is what I and others recommend.
+
+## Functions
+
+These are all already handled by existing triggers.
+
+#### `limb.addHit(name, hit_limb, amount)`
+
+ - Add a given number amount to the hits table for name, on the hit_limb.
+ - E.g. `limb.addHit("Romaen", "left leg", 16.42)`
+
+#### `limb.resetLimb(name, hit_limb)`
+
+ - Reset a limb prematurely.
+ - E.g. `limb.resetLimb("Romaen", "left leg")`
+
+#### `limb.salve(name, area)`
+
+ - Handle a salve appropriately. Area can be any of "head", "torso", "arms", and "legs".
+ - Assumes left limb before right, for arms and legs.
+ - E.g. `limb.salve("Romaen", "legs")`
+
+#### `limb.resetAll(name)`
+
+ - Reset all limbs on name.
+ - E.g. `limb.resetAll("Romaen")`
