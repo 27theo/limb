@@ -3,7 +3,7 @@ Limb counter for Achaea, on Mudlet. Please see the releases page for the downloa
 
 ## Setup
 
- 1) Install the latest release from the releases section (see right on desktop website).
+ 1) Install the latest release from the releases section (see to the right of this on desktop website).
  2) Ensure that your target alias meets the following requirements:
      - Sends "settarget \<target\>" to the game.
      - Sets the `target` variable to the target's name, capitalised appropriately. (E.g. "Romaen" as opposed to "romaen".)
