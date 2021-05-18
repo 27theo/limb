@@ -1,8 +1,6 @@
 # limb
 Limb counter for Achaea, on Mudlet. Please see [the releases page](https://github.com/27theo/limb/releases) for the download.
 
-## Apparently I chose an awful namespace. I thought I could get away with it, but it seems not. Re-releasing the package with a different namespace in the next few hours or so!
-
 ## Setup
 
  1) Install the latest release from the releases section (see to the right of this on desktop website).
