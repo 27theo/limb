@@ -6,7 +6,7 @@ Limb counter for Achaea, on Mudlet. Please see [the releases page](https://githu
  1) Install the latest release from the releases section (see to the right of this on desktop website).
  2) Ensure that your target alias meets the following requirements:
      - Sends "settarget \<target\>" to the game.
-     - Sets the `target` variable to the target's name, capitalised appropriately. (E.g. "Romaen" as opposed to "romaen".)
+     - Sets the `target` variable to the target's name, capitalised appropriately. (E.g. "Romaen" as opposed to "romaen")
 
 Optional 3) Add highlights and echoes to your taste. Something like 
 
