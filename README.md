@@ -48,6 +48,16 @@ These are all already handled by existing triggers.
  - Reset all limbs on name.
  - E.g. `lb.resetAll("Romaen")`
 
+## Checking if a target is prepped.
+
+This is something pretty class-dependent, so I thought I'd leave it up to the individual.
+
+The easiest method, which works for a few classes:
+ 1) Upon hitting a limb, set a variable X to the amount of damage that hit did.
+ 2) To check if a limb is prepped: `if lb[target].hits["right leg"] + X >= 100 then`
+
 ## Mangles
+
+The package doesn't handle mangles out of the box yet.
 
 ![image](https://user-images.githubusercontent.com/76885241/137416758-038922a7-7b4d-45b7-8744-a02718a02545.png)
