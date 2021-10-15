@@ -23,7 +23,7 @@ at the end of the `lb.addHit()` function should do the trick for those of you wh
 
 Queueing example: `queue addclear eqbal stand|wield mace|smite Romaen right leg`
 
-## The prompt
+## Adding limb status to the end of your prompt
 
 ### Svof
 
