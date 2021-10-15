@@ -23,6 +23,17 @@ at the end of the `lb.addHit()` function should do the trick for those of you wh
 
 Queueing example: `queue addclear eqbal stand|wield mace|smite Romaen right leg`
 
+## The prompt
+
+### Svof
+
+![image](https://user-images.githubusercontent.com/76885241/137488080-0e16bd2e-c21d-4cec-907d-9cb877da34e4.png)
+Thank you [Xanton](https://forums.achaea.com/profile/Xanton).
+
+### Other systems/custom profile
+
+![image](https://user-images.githubusercontent.com/76885241/137489978-63c82c56-4f54-4b3e-affb-3a53fcfa7ef6.png)
+
 ## Functions
 
 These are all already handled by existing triggers.
@@ -48,7 +59,7 @@ These are all already handled by existing triggers.
  - Reset all limbs on name.
  - E.g. `lb.resetAll("Romaen")`
 
-## Checking if a target is prepped.
+## Checking if a target is prepped
 
 This is something pretty class-dependent, so I thought I'd leave it up to the individual. 
 
