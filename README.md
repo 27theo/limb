@@ -25,6 +25,10 @@ Queueing example: `queue addclear eqbal stand|wield mace|smite Romaen right leg`
 
 ## Adding limb status to the end of your prompt
 
+The function `lb.prompt()` returns a string displaying the values of the head, torso, left arm, right arm, left leg, right leg. You can change this order, if you navigate to the script declaring the function.
+
+The string might look like `[98|0|0|0|105|105]`, for example.
+
 ### Svof
 
 ![image](https://user-images.githubusercontent.com/76885241/137488080-0e16bd2e-c21d-4cec-907d-9cb877da34e4.png)
