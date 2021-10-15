@@ -7,6 +7,7 @@ Limb counter for Achaea, on Mudlet. Please see [the releases page](https://githu
  2) Ensure that your target alias meets the following requirements:
      - Sends "settarget \<target\>" to the game.
      - Sets the `target` variable to the target's name, capitalised appropriately. (E.g. "Romaen" as opposed to "romaen")
+ 3) Ensure that your limb attacks are queued. See the queueing example below.
 
 Optional 3) Add highlights and echoes to your taste. Something like 
 
@@ -16,11 +17,11 @@ if lb[name].hits[ltar] > 100 then
 end
 ```
 
-at the end of the `lb.addHit()` function should do the trick for those of you who like big red text etc.
+at the end of the `lb.addHit()` function should do the trick for those of you who like big red text etc.*
 
-Note: Without editing, limb damage will only register when the limb attack is queued and runs. This ensures that nobody can illusion the "your blow lands with a crunch" line without also illusioning a system queue message, which is an illegal illusion. You can tweak the trigger however you'd like, but the existing method is what I and others recommend.
+**Important note: Without editing, limb damage will only register when the limb attack is queued and runs.** This ensures that nobody can illusion the "your blow lands with a crunch" line without also illusioning a system queue message, which is an illegal illusion. You can tweak the trigger however you'd like, but the existing method is what I and others recommend.
 
-Hopefully, the functions provided make it easy to add something like "target hits rebounding", if you've got data for that kind of thing. 
+Queueing example: `queue addclear eqbal stand|wield mace|smite Romaen right leg`
 
 ## Functions
 
