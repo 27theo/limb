@@ -50,11 +50,13 @@ These are all already handled by existing triggers.
 
 ## Checking if a target is prepped.
 
-This is something pretty class-dependent, so I thought I'd leave it up to the individual.
+This is something pretty class-dependent, so I thought I'd leave it up to the individual. 
 
-The easiest method, which works for a few classes:
- 1) Upon hitting a limb, set a variable X to the amount of damage that hit did.
- 2) To check if a limb is prepped: `if lb[target].hits["right leg"] + X >= 100 then`
+The easiest method, which works for a few classes (classes that only have one limb damage attack: priest, snb etc):
+ 1) Upon hitting a limb, set a variable X to the amount of damage that hit did. I use `lb.lastHit`.
+ 2) To check if a limb is prepped: `if lb[target].hits["right leg"] + lb.lastHit >= 100 then`
+
+Otherwise, if you're playing a blademaster or a tekura monk, you're going to have to get more creative.
 
 ## Mangles
 
