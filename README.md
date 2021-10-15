@@ -46,3 +46,7 @@ These are all already handled by existing triggers.
 
  - Reset all limbs on name.
  - E.g. `lb.resetAll("Romaen")`
+
+## Mangles
+
+![image](https://user-images.githubusercontent.com/76885241/137416758-038922a7-7b4d-45b7-8744-a02718a02545.png)
