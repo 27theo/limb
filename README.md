@@ -19,7 +19,7 @@ end
 
 at the end of the `lb.addHit()` function should do the trick for those of you who like big red text etc.*
 
-**Important note: Without editing, limb damage will only register when the limb attack is queued and runs.** This ensures that nobody can illusion the "your blow lands with a crunch" line without also illusioning a system queue message, which is an illegal illusion. You can tweak the trigger however you'd like, but the existing method is what I and others recommend.
+**Important note: You must serverside queue your limb attacks, and have CONFIG SHOWQUEUEALERTS ON. Without editing, limb damage will only register when the limb attack is queued and runs.** This ensures that nobody can illusion the "your blow lands with a crunch" line without also illusioning a system queue message, which is an illegal illusion. You can tweak the trigger however you'd like, but the existing method is what I and others recommend.
 
 Queueing example: `queue addclear eqbal stand|wield mace|smite Romaen right leg`
 
