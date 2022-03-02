@@ -67,7 +67,7 @@ These are all already handled by existing triggers.
 
 This is something pretty class-dependent, so I thought I'd leave it up to the individual. 
 
-The easiest method, which works for a few classes (classes that only have one limb damage attack: priest, snb etc):
+The easiest method, which works for a few classes (classes that only have one limb damage attack: priest, psion etc):
  1) Upon hitting a limb, set a variable X to the amount of damage that hit did. I use `lb.lastHit`.
  2) To check if a limb is prepped: `if lb[target].hits["right leg"] + lb.lastHit >= 100 then`
 
