@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>Limb</name>
+			<script></script>
+			<command></command>
+			<packageName></packageName>
+			<regex></regex>
+			<Alias isActive="yes" isFolder="no">
+				<name>^lra$</name>
+				<script>lb.resetAll(target)</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^lra$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>^lr (.+)$</name>
+				<script>local convert = {
+  head = "head",
+  hh = "head",
+  h = "head",
+   
+  torso = "torso",
+  tt = "torso",
+  t = "torso",
+  
+  ["right arm"] = "right arm",
+  ra = "right arm",
+  rarm = "right arm",
+  
+  ["left arm"] = "left arm",
+  la = "left arm",
+  larm = "left arm",
+  
+  ["right leg"] = "right leg",
+  rl = "right leg",
+  rleg = "right leg",
+  
+  ["left leg"] = "left leg",
+  ll = "left leg",
+  lleg = "left leg",
+}
+
+if convert[matches[2]] and target and lb[target] then
+  lb.resetLimb(target, convert[matches[2]])
+end</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^lr (.+)$</regex>
+			</Alias>
+			<Alias isActive="no" isFolder="no">
+				<name>^t (.+)$</name>
+				<script>send("settarget " .. matches[2])
+target = matches[2]:lower():title()
+
+-- This is an example target alias. Note that the target variable has to be properly capitalised.</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^t (.+)$</regex>
+			</Alias>
+		</AliasGroup>
+	</AliasPackage>
+</MudletPackage>

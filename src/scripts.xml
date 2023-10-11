@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<ScriptGroup isActive="yes" isFolder="yes">
+			<name>Limb</name>
+			<packageName></packageName>
+			<script></script>
+			<eventHandlerList />
+			<Script isActive="yes" isFolder="no">
+				<name>limb init</name>
+				<packageName></packageName>
+				<script>lb = lb or {}
+
+function lb.initTarget(name)
+  name = name:lower():title()
+  
+  lb[name] = lb[name] or {}
+  lb[name].t = lb[name].t or {}
+  lb[name].hits = lb[name].hits or {
+    head = 0,
+    torso = 0,
+    ["left arm"] = 0,
+    ["right arm"] = 0,
+    ["left leg"] = 0,
+    ["right leg"] = 0,
+  }
+  
+  raiseEvent("limb hits updated", name, "all")
+end
+
+function lb.echo(str)
+  cecho("&lt;turquoise&gt;[Limb]: &lt;white&gt;" .. str .. "\n")
+end</script>
+				<eventHandlerList />
+			</Script>
+			<Script isActive="yes" isFolder="no">
+				<name>limb management</name>
+				<packageName></packageName>
+				<script>function lb.addHit(name, ltar, amount)
+  name = name:lower():title()
+  if not lb[name] then lb.initTarget(name) end
+  if not lb[name].hits[ltar] then 
+    cecho("&lt;red&gt;(!) Limb not found: " .. tostring(ltar) .. ".\n")
+    return
+  end
+  lb[name].hits[ltar] = lb[name].hits[ltar] + amount
+  if lb[name].t[ltar] then killTimer(lb[name].t[ltar]) end
+  lb[name].t[ltar] = tempTimer(180, [[
+    lb.resetLimb("]] .. name .. [[", "]] .. ltar .. [[")
+    lb["]] .. name .. [["].t["]] .. ltar .. [["] = nil
+  ]])
+  cecho(" " .. ((lb[name].hits[ltar] &gt; 100 and "&lt;firebrick&gt;") or "&lt;ansi_yellow&gt;") .. "("
+            .. ((lb[name].hits[ltar] &gt; 100 and "&lt;orange_red&gt;") or "&lt;yellow&gt;") .. lb[name].hits[ltar] .. "%"
+            .. ((lb[name].hits[ltar] &gt; 100 and "&lt;firebrick&gt;") or "&lt;ansi_yellow&gt;") .. ")")    
+  raiseEvent("limb hits updated", name, ltar, amount)
+end
+
+function lb.resetLimb(name, ltar)
+  name = name:lower():title()
+  if not lb[name].hits[ltar] then
+    cecho("&lt;red&gt;(!) Limb not found: " .. tostring(ltar) .. ".\n")
+    return
+  end
+  lb[name].hits[ltar] = 0
+  lb.echo("Reset " .. name .. ((name:sub(-1) == "s" and "'") or "'s") .. " " .. ltar .. ".")
+end
+
+function lb.salve(name, area)
+  lb[name].t.cure = tempTimer(3.7, [[
+    local convert = {
+      head = {"head"},
+      torso = {"torso"},
+      arms = {[1] = "left arm", [2] = "right arm"},
+      legs = {[1] = "left leg", [2] = "right leg"},
+    }
+    if not convert["]] .. area .. [["] then return end
+    for _, ltar in ipairs(convert["]] .. area .. [["]) do 
+      if lb["]] .. name .. [["].hits[ltar] &gt;= 100 then 
+        if lb["]] .. name .. [["].t.cure then killTimer(lb["]] .. name .. [["].t.cure) end
+        lb.resetLimb("]] .. name .. [[", ltar, true)
+        if lb["]] .. name .. [["].t[ltar] then
+          killTimer(lb["]] .. name .. [["].t[ltar])
+          lb["]] .. name .. [["].t[ltar] = nil
+        end
+        lb["]] .. name .. [["].t.cure = nil
+        break
+      end
+    end
+  ]])
+end
+
+function lb.resetAll(name)
+  for _, v in ipairs({"head", "torso", "left arm", "right arm", "left leg", "right leg"}) do 
+    if lb[name] then
+      if lb[name].hits[v] &gt; 0 then 
+        lb.resetLimb(name, v)
+      end
+      if lb[name].t[v] then 
+        killTimer(lb[name].t[v])
+        lb[name].t[v] = nil
+      end
+    end
+  end
+end</script>
+				<eventHandlerList />
+			</Script>
+			<Script isActive="yes" isFolder="no">
+				<name>limb prompt</name>
+				<packageName></packageName>
+				<script>function lb.prompt()
+  if not lb[target] then return "" end
+  local ret = {}
+  -- CHANGE ORDER BELOW! CHANGE ORDER BELOW! CHANGE ORDER BELOW! CHANGE ORDER BELOW! CHANGE ORDER BELOW! CHANGE ORDER BELOW! --
+  for _, v in ipairs({"head", "torso", "left arm", "right arm", "left leg", "right leg"}) do 
+  -----------------------------------------------------------------------------------------------------------------------------
+    table.insert(ret, ((lb[target].hits[v] &gt; 100 and "&lt;red&gt;") or ((lb[target].hits[v] &gt; 0 and "&lt;orange&gt;") or "&lt;grey&gt;")) .. lb[target].hits[v])
+  end
+  return "&lt;DimGrey&gt;[" .. table.concat(ret, "&lt;DimGrey&gt;|") .. "&lt;DimGrey&gt;]"
+end</script>
+				<eventHandlerList />
+			</Script>
+		</ScriptGroup>
+	</ScriptPackage>
+</MudletPackage>
