@@ -71,7 +71,7 @@
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>^As your blow lands with a crunch, you perceive that you have dealt (?&lt;amount&gt;.+)% damage to (?&lt;name&gt;\w+)'s (?&lt;limb&gt;.+)\.$</string>
-						<string>^As you carve into (?&lt;name&gt;\w+), you perceive that you have dealt (?&lt;amount&gt;.+)% damage to (?:his|her) (?&lt;limb&gt;.+).$</string>
+						<string>^As you carve into (?&lt;name&gt;\w+), you perceive that you have dealt (?&lt;amount&gt;.+)% damage to (?:his|her|faes) (?&lt;limb&gt;.+).$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -116,7 +116,7 @@ end</script>
 				<colorTriggerFgColor>#000000</colorTriggerFgColor>
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList>
-					<string>^(\w+) takes some salve from a vial and rubs it on (?:her|his) (.+).$</string>
+					<string>^(\w+) takes some salve from a vial and rubs it on (?:her|his|faes) (.+).$</string>
 				</regexCodeList>
 				<regexCodePropertyList>
 					<integer>1</integer>
